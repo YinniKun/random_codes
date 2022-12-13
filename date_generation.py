@@ -68,7 +68,6 @@ def main(month,period,year):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(
-                    prog = 'Date Generator',
                     description = 'Generate the date and day of the week string for a given period')
     parser.add_argument("-p", "--period", default=4,
                         help="An positive interger for the number of month needed. Default is 4 months")
