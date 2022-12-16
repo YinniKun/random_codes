@@ -24,7 +24,7 @@ if __name__ == '__main__':
                             Skip this parameter if you just want to delete tasks / see the \
                                 tasks you should be doing today")
     parser.add_argument("-at","--add_time", default = False
-                        help="The time required to complete the task. \
+                        help="The time required to complete the task in hours. \
                             Skip this parameter if you just want to delete tasks / see the \
                                 tasks you should be doing today.")
     parser.add_argument("-ad","--add_due", default = False
