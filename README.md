@@ -2,7 +2,7 @@
 
 **Author:** Richard Dong
 
-**Last Update:** December 15, 2022
+**Last Update:** December 16, 2022
 
 This repository contains codes for a variety of automations that I make to make my life better.
 
