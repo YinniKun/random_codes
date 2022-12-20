@@ -16,6 +16,8 @@ Please ensure you have python 3.9+ to run all the codes.
 
 **task_manager**: Automatically let you see the tasks that you should be doing today, based on your availability, the due date, and the time commitment for the tasks.
 
+**health_data_plot**: Plots the health data stored in a csv file.
+
 
 ## Dependencies by Programs
 
@@ -29,3 +31,7 @@ All programs will require ``argparse`` to run. In addition to ``argparse``, plea
 - os
 - datetime
 - dateutil.relativedelta
+
+**health_data_plot**
+- matplotlib.pyplot
+- csv
