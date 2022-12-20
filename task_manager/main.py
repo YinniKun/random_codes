@@ -49,7 +49,6 @@ def main():
             "Please ensure you entered a time requirement (an possibly a due date) for your tasks."
         with open("tasks.txt", "r") as f:
             lines = f.readlines()
-        f.close()
         if args.add_due == False:
             due = "someday_in_the_future"
         else:
@@ -59,7 +58,6 @@ def main():
         f = open("tasks.txt", "w")
         for each in lines:
             f.write(each)
-        f.close()
         print("New task added")
     if args.delete_task != False:
         if find_file():
@@ -69,7 +67,6 @@ def main():
                 for line in lines:
                     if line.split()[0] != args.delete_task:
                         f.write(line)
-            f.close()
             print("Task deleted")
         else:
             print(error_msg)
