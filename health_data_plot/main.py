@@ -4,6 +4,8 @@
 import argparse
 import matplotlib.pyplot as plt
 import csv
+import numpy as np
+from sklearn.linear_model import LinearRegression
 
 ## Define some indeces
 workout = 0
@@ -59,7 +61,7 @@ def main():
             except:
                 pass
         number_energy = list(range(1,len(energy)+1))
-        ax.plot(number_energy,energy[::-1],marker=".",markerfacecolor='blue',linestyle="-",color="red",label="Maximum Heart Rate")
+        ax.plot(number_energy,energy[::-1],marker=".",markerfacecolor='blue',linestyle="-",color="red",label="Energy")
         ax.set_title(f"Total Energy for {args.workout} starting from {start_date}")
         plt.savefig(f"Total Energy for {args.workout} starting from {start_date}.pdf")
         print("Plot for energy is saved!")
@@ -75,7 +77,7 @@ def main():
             except:
                 pass
         number_dis = list(range(1,len(dis)+1))
-        ax.plot(number_dis,dis[::-1],marker=".",markerfacecolor='blue',linestyle="-",color="red",label="Maximum Heart Rate")
+        ax.plot(number_dis,dis[::-1],marker=".",markerfacecolor='blue',linestyle="-",color="red",label="Distance")
         ax.set_title(f"Distance for {args.workout} starting from {start_date}")
         plt.savefig(f"Distance for {args.workout} starting from {start_date}.pdf")
         print("Plot for distance is saved!")
@@ -91,7 +93,7 @@ def main():
             except:
                 pass
         number_spd = list(range(1,len(spd)+1))
-        ax.plot(number_spd,spd[::-1],marker=".",markerfacecolor='blue',linestyle="-",color="red",label="Maximum Heart Rate")
+        ax.plot(number_spd,spd[::-1],marker=".",markerfacecolor='blue',linestyle="-",color="red",label="Speed")
         ax.set_title(f"Speed for {args.workout} starting from {start_date}")
         plt.savefig(f"Speed for {args.workout} starting from {start_date}.pdf")
         print("Plot for energy is saved!")
@@ -110,7 +112,14 @@ def main():
             except:
                 pass
         number_dur = list(range(1,len(dur)+1))
-        ax.plot(number_dur,dur[::-1],marker=".",markerfacecolor='blue',linestyle="-",color="red",label="Maximum Heart Rate")
+        ax.plot(number_dur,dur[::-1],marker=".",markerfacecolor='blue')
+        x = np.array(number_dur).reshape((-1,1))
+        y = np.array(dur[::-1])
+        model = LinearRegression().fit(x, y)
+        trend = []
+        for each in number_dur:
+            trend.append(model.intercept_+each*model.coef_)
+        ax.plot(number_dur,trend,marker=".",markerfacecolor='red',linestyle="-",color="red")
         ax.set_title(f"Duration for {args.workout} starting from {start_date}")
         plt.savefig(f"Duration for {args.workout} starting from {start_date}.pdf")
         print("Plot for duration is saved!")
