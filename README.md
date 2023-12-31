@@ -40,7 +40,7 @@ All programs will require ``argparse`` to run. In addition to ``argparse``, plea
 - sklearn
 - numpy
 
-**fft_pic
+**fft_pic**
 - matplotlib.pyplot
 - numpy
 - scipy,io
